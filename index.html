@@ -1,322 +1,746 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MR Enterprises — Premium supplier of natural dry cow dung cakes, gobar powder & organic manure. Bulk supply with pan India delivery from Rajasthan, India.">
-  <meta name="keywords" content="cow dung cakes, gobar, organic manure, dry cow dung, bulk supply, Rajasthan, organic farming, havan">
-  <meta property="og:title" content="MR Enterprises | Premium Cow Dung Products">
-  <meta property="og:description" content="Trusted supplier of dry cow dung cakes, gobar powder & organic manure for farms, gardens & rituals. Pan India delivery.">
-  <meta property="og:type" content="website">
-  <title>MR Enterprises | Premium Cow Dung Products — Rajasthan, India</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR Enterprises – Premium Cow Dung Products | Rajasthan, India</title>
+  <meta name="description" content="MR Enterprises is a trusted bulk supplier of dry cow dung cakes and organic cow dung powder. Pan India delivery. 100% natural, chemical-free, sun-dried products." />
+  <meta name="keywords" content="cow dung cakes, dry gobar cakes, organic manure, bulk cow dung supplier, vermicompost, havan samagri, Rajasthan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brown-deep: #3b2a1e;
+      --brown-mid:  #5c3d28;
+      --brown-warm: #7a5230;
+      --amber:      #c8883c;
+      --amber-light:#e6a84e;
+      --cream:      #fdf6ee;
+      --cream-dark: #f3e9d8;
+      --cream-border:#e2d0b8;
+      --green:      #4a7c44;
+      --green-light:#eaf3e8;
+      --text-dark:  #2a1f15;
+      --text-mid:   #5c4030;
+      --text-light: #9a7a5e;
+      --white:      #ffffff;
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--brown-deep);
+      position: sticky; top: 0; z-index: 100;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      border-bottom: 2px solid var(--amber);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amber-light);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: #f5ede3; font-weight: 400; font-size: 0.85rem; display: block; line-height: 1; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: #d4bfaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-cta {
+      background: var(--amber);
+      color: #fff8f0;
+      border: none;
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #b8782c; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #d4bfaa; border-radius: 2px; }
+    .mobile-menu { display: none; background: var(--brown-deep); padding: 1rem 2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu a { display: block; color: #d4bfaa; text-decoration: none; padding: 10px 0; font-size: 0.95rem; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--brown-deep);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(200,136,60,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 30%, rgba(200,136,60,0.06) 0%, transparent 50%);
+    }
+    .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,136,60,0.18);
+      border: 1px solid rgba(200,136,60,0.35);
+      color: var(--amber-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      color: #f5ede3;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--amber-light); font-style: normal; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #c8b09a;
+      margin-bottom: 0.75rem;
+      max-width: 540px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: #907060;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-wa {
+      background: #25D366; color: #fff;
+      border: none; padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.15s;
+    }
+    .btn-wa:hover { background: #1fb854; }
+    .btn-outline {
+      background: transparent; color: #f5ede3;
+      border: 1.5px solid rgba(245,237,227,0.3);
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color 0.15s;
+    }
+    .btn-outline:hover { border-color: rgba(245,237,227,0.6); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--brown-mid);
+      padding: 0.9rem 2rem;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: #c8b09a; font-weight: 500; }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* ── SECTIONS ── */
+    section { padding: 4rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600; color: var(--text-dark);
+      margin-bottom: 0.6rem; line-height: 1.25;
+    }
+    .section-desc { font-size: 0.95rem; color: var(--text-mid); max-width: 560px; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem; }
+    .about-text p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 1rem; }
+    .about-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+    .badge {
+      background: var(--cream-dark); color: var(--brown-warm);
+      border: 1px solid var(--cream-border);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 5px 13px; border-radius: 20px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-box {
+      background: var(--cream);
+      border: 1px solid var(--cream-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem; text-align: center;
+    }
+    .stat-box .num { font-family: 'Lora', serif; font-size: 1.75rem; font-weight: 600; color: var(--amber); }
+    .stat-box .lbl { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--cream); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 2.5rem; }
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--cream-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .product-card:hover { border-color: var(--amber); box-shadow: 0 4px 20px rgba(200,136,60,0.1); }
+    .product-icon-wrap {
+      width: 52px; height: 52px;
+      background: #fef5e9;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .product-icon-wrap svg { color: var(--amber); }
+    .product-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .product-card p { font-size: 0.875rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1rem; }
+    .product-uses { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .product-uses li { font-size: 0.8rem; color: var(--text-mid); display: flex; align-items: center; gap: 6px; }
+    .product-uses li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+
+    /* ── SPECS TABLE ── */
+    .specs-wrap { margin-top: 2.5rem; overflow-x: auto; }
+    .specs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .specs-table th {
+      background: var(--brown-deep); color: #f5ede3;
+      padding: 12px 16px; text-align: left; font-weight: 500; font-size: 0.85rem;
+    }
+    .specs-table th:first-child { border-radius: 8px 0 0 0; }
+    .specs-table th:last-child { border-radius: 0 8px 0 0; }
+    .specs-table td { padding: 11px 16px; border-bottom: 1px solid var(--cream-border); color: var(--text-mid); }
+    .specs-table tr:nth-child(even) td { background: var(--cream); }
+    .specs-table tr:last-child td { border-bottom: none; }
+
+    /* ── INDUSTRIES ── */
+    #industries { background: var(--white); }
+    .industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 2.5rem; }
+    .industry-card {
+      background: var(--cream);
+      border: 1px solid var(--cream-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .industry-card:hover { border-color: var(--amber); background: #fef5e9; }
+    .industry-card .icon { font-size: 1.75rem; margin-bottom: 8px; }
+    .industry-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+    .industry-card p { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--cream); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 2.5rem; }
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--cream-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .price-card.featured {
+      border-color: var(--amber);
+      background: #fef5e9;
+    }
+    .price-card .feat-tag {
+      display: inline-block;
+      background: var(--amber); color: #fff8f0;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .price-card h3 { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem; }
+    .price-card .price { font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--amber); margin-bottom: 0.25rem; }
+    .price-card .price-note { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1rem; }
+    .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .price-card ul li { font-size: 0.85rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: 8px; }
+    .price-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 2.5rem; }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-border);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .gallery-item .g-icon { font-size: 2.5rem; opacity: 0.4; }
+    .gallery-item span { font-size: 0.8rem; color: var(--text-light); }
+    .gallery-note { font-size: 0.82rem; color: var(--text-light); margin-top: 1rem; font-style: italic; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--brown-deep); }
+    #contact .section-label { color: var(--amber-light); }
+    #contact .section-title { color: #f5ede3; }
+    #contact .section-desc { color: #c8b09a; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+    }
+    .contact-row .icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+    .contact-row .label { font-size: 0.75rem; color: #907060; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .contact-row .val { font-size: 0.9rem; color: #f5ede3; margin-top: 1px; }
+    .contact-row a { color: var(--amber-light); text-decoration: none; }
+    .contact-row a:hover { text-decoration: underline; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; }
+    .contact-actions h4 { font-size: 1rem; font-weight: 600; color: #f5ede3; margin-bottom: 0.25rem; }
+    .contact-actions p { font-size: 0.85rem; color: #c8b09a; margin-bottom: 1.25rem; }
+    .btn-wa-lg {
+      background: #25D366; color: #fff;
+      border: none; padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: background 0.15s;
+    }
+    .btn-wa-lg:hover { background: #1fb854; }
+    .btn-call-lg {
+      background: transparent; color: #f5ede3;
+      border: 1.5px solid rgba(245,237,227,0.25);
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: border-color 0.15s;
+    }
+    .btn-call-lg:hover { border-color: rgba(245,237,227,0.5); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #261a10;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer p { font-size: 0.8rem; color: #6b5040; }
+    footer strong { color: #9a7060; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 3rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a href="#" class="nav-logo">MR Enterprises</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">MR Enterprises <span>Premium Cow Dung Products</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="nav-cta">WhatsApp Us</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#products" onclick="toggleMenu()">Products</a>
+    <a href="#industries" onclick="toggleMenu()">Industries</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="https://wa.me/916350225693" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp: +91 6350225693</a>
+  </div>
 
-  <main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-badge">🌿 Bulk Supply · Pan India Delivery · Eco-Friendly</div>
+      <h1>From <em>Nature</em><br>to Nourishment</h1>
+      <p class="hero-sub">Premium supplier of natural cow dung cakes and organic gobar products for agriculture, gardening, vermicomposting, and religious ceremonies.</p>
+      <p class="hero-tagline">100% Natural · Chemical-Free · Sun-Dried · Supply up to 100 Tons/Month</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Now
+        </a>
+        <a href="#products" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          View Products
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="hero" aria-label="Introduction">
-      <div class="hero-inner container">
-        <span class="hero-badge">🌿 100% Natural — Rajasthan, India</span>
-        <h1 class="hero-title">
-          Pure <span class="accent">Cow Dung</span><br>Products
-        </h1>
-        <p class="hero-tagline">From Nature to Nourishment</p>
-        <p class="hero-subtitle">
-          Trusted supplier of dry cow dung cakes, gobar powder &amp; organic manure for farms, gardens &amp; rituals.
-        </p>
-        <p class="hero-strip">
-          Premium Supplier of Natural Cow Dung Products &nbsp;|&nbsp; Bulk Supply &nbsp;|&nbsp; Pan India Delivery
-        </p>
-        <div class="hero-actions">
-          <a href="https://wa.me/916350225693" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Us
-          </a>
-          <a href="#products" class="btn btn-ghost">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            Our Products
-          </a>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      100% Natural &amp; Chemical-Free
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Pan India Delivery
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Up to 100 Tons/Month Supply
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Trusted Across Industries
+    </div>
+    <div class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Based in Rajasthan, India
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">Who we are</div>
+      <div class="section-title">About MR Enterprises</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Established in 2026, MR Enterprises is an emerging supplier of natural and eco-friendly cow dung products, committed to serving the growing needs of organic farming and sustainable agriculture.</p>
+          <p>Working closely with reliable dairy farms and rural suppliers across Rajasthan, we ensure consistent quality and timely delivery to customers across India. Our products are 100% natural, sun-dried, and completely chemical-free.</p>
+          <p><strong>Our mission</strong> is to support organic farming and provide natural alternatives that benefit both the environment and agriculture — while empowering rural communities along the way.</p>
+          <div class="about-badges">
+            <span class="badge">✓ 100% Natural</span>
+            <span class="badge">✓ Chemical-Free</span>
+            <span class="badge">✓ Sun-Dried</span>
+            <span class="badge">✓ Bulk Supply</span>
+            <span class="badge">✓ Pan India Delivery</span>
+            <span class="badge">✓ Competitive Pricing</span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="num">100T</div>
+            <div class="lbl">Monthly Supply Capacity</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">500kg</div>
+            <div class="lbl">Minimum Order Quantity</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">5+</div>
+            <div class="lbl">Industries Served</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">🌿</div>
+            <div class="lbl">100% Eco-Friendly</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar" aria-label="Key benefits">
-      <div class="container">
-        <ul class="trust-row">
-          <li>
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            100% Natural &amp; Pure
-          </li>
-          <li>
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            Bulk Orders Available
-          </li>
-          <li>
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Pan India Delivery
-          </li>
-        </ul>
-        <p class="trust-bottom">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          Trusted Supplier Across India
-        </p>
-      </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="section section-white">
-      <div class="container section-header">
-        <span class="eyebrow">About Us</span>
-        <h2 class="section-title">From Nature to Nourishment</h2>
-        <p class="section-desc">
-          MR Enterprises is a trusted supplier of premium-quality dry cow dung cakes and organic cow dung products. We provide eco-friendly and naturally sun-dried products for agriculture, gardening, vermicomposting, religious purposes, and industrial applications.
-        </p>
-      </div>
-      <div class="container about-content">
-        <p>
-          Established in 2026, MR Enterprises is an emerging supplier of natural and eco-friendly cow dung products, committed to serving the growing needs of organic farming and sustainable agriculture. Working closely with reliable dairy farms and rural suppliers, we ensure consistent quality and timely delivery to customers across India.
-        </p>
-        <blockquote class="mission-callout">
-          Our mission is to support organic farming and provide natural alternatives that benefit both the environment and agriculture.
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="section section-cream" aria-label="Why choose us">
-      <div class="container section-header">
-        <span class="eyebrow">Why Choose Us</span>
-        <h2 class="section-title">What sets us apart</h2>
-      </div>
-      <div class="container">
-        <ul class="why-grid">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> 100% Natural Products</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Chemical-Free</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Sun-Dried</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Bulk Supply Available</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Pan India Delivery</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Competitive Pricing</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Reliable Supply Network</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Products -->
-    <section id="products" class="section section-cream-light">
-      <div class="container section-header">
-        <span class="eyebrow">What We Supply</span>
-        <h2 class="section-title">Our Products</h2>
-        <p class="section-desc">
-          All products sourced from healthy desi cows. Available in bulk quantities for farms, nurseries &amp; religious use.
-        </p>
-      </div>
-      <div class="container product-grid">
-        <article class="product-card">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><circle cx="12" cy="16" r="3"/></svg>
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="section-label">What we supply</div>
+      <div class="section-title">Our Products</div>
+      <p class="section-desc">All products sourced from healthy desi cows. Available in bulk for farms, nurseries, religious institutions, and industrial use.</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon-wrap">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
           </div>
           <h3>Dry Cow Dung Cakes</h3>
-          <p>Sun-dried dung cakes ideal for havan, rituals, pooja ceremonies, organic farming, vermicompost preparation, and as clean-burning fuel.</p>
-          <span class="product-tag">Temples &amp; Rituals</span>
-        </article>
-        <article class="product-card">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <p>Naturally sun-dried cow dung cakes — our primary product. Ideal for fuel, rituals, and organic farming applications.</p>
+          <ul class="product-uses">
+            <li>Havan, yajna &amp; religious ceremonies</li>
+            <li>Organic farming &amp; soil enrichment</li>
+            <li>Vermicompost preparation</li>
+            <li>Clean fuel applications</li>
+          </ul>
+        </div>
+        <div class="product-card">
+          <div class="product-icon-wrap">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/><path d="M12 6v6l4 2"/></svg>
           </div>
-          <h3>Cow Dung Powder</h3>
-          <p>Finely processed gobar powder — a powerful organic manure that enriches soil and boosts crop yield.</p>
-          <span class="product-tag">Farms &amp; Gardens</span>
-        </article>
-        <article class="product-card">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 019.5 6.5C10.5 4.5 12 3 14 3c3 0 5 2.5 5 6 0 5.5-4 11-8 11z"/><path d="M11 20c-2 0-4-1.5-4-4 0-2 1-3.5 3-4"/></svg>
+          <h3>Cow Dung Powder / Manure</h3>
+          <p>Finely processed gobar powder — a powerful organic manure that naturally enriches soil and boosts crop yield.</p>
+          <ul class="product-uses">
+            <li>Organic fertilizer for crops</li>
+            <li>Home garden &amp; nursery use</li>
+            <li>Vermicompost raw material</li>
+            <li>Soil conditioning</li>
+          </ul>
+        </div>
+        <div class="product-card">
+          <div class="product-icon-wrap">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8C8 10 5.9 16.17 3.82 19.11A1 1 0 004.65 20.5C8.13 18.5 11 17 15 18l3-8z"/><path d="M17 8l2-6"/></svg>
           </div>
           <h3>Raw Cow Dung (Gobar)</h3>
-          <p>Fresh gobar for plastering, biogas production, and natural fertilizer application.</p>
-          <span class="product-tag">Agriculture</span>
-        </article>
-      </div>
-
-      <!-- Product Specifications -->
-      <div class="container specs-block">
-        <h3 class="specs-title">Product Specifications — Dry Cow Dung Cakes</h3>
-        <div class="specs-table-wrap">
-          <table class="specs-table">
-            <tbody>
-              <tr><th scope="row">Form</th><td>Cake</td></tr>
-              <tr><th scope="row">Drying Level</th><td>Sun Dried</td></tr>
-              <tr><th scope="row">Packaging</th><td>25 kg and 50 kg bags</td></tr>
-              <tr><th scope="row">Minimum Order Quantity</th><td>500 kg</td></tr>
-              <tr><th scope="row">Supply Capacity</th><td>Up to 100 Tons per Month</td></tr>
-              <tr><th scope="row">Applications</th><td>Organic farming, vermicompost preparation, fuel applications, havan and religious ceremonies</td></tr>
-            </tbody>
-          </table>
+          <p>Fresh gobar for plastering, natural floor coating, biogas production, and direct fertilizer application.</p>
+          <ul class="product-uses">
+            <li>Traditional floor &amp; wall plastering</li>
+            <li>Biogas production</li>
+            <li>Direct soil application</li>
+            <li>Industrial composting</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- Industries We Serve -->
-    <section id="industries" class="section section-white">
-      <div class="container section-header">
-        <span class="eyebrow">Who We Serve</span>
-        <h2 class="section-title">Customers we supply to</h2>
-      </div>
-      <div class="container industry-grid">
-        <article class="industry-card">
-          <div class="industry-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="8" width="20" height="10" rx="1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M6 8V6a2 2 0 012-2h1"/><path d="M12 4v4"/><path d="M16 4v4"/></svg>
-          </div>
-          <h3>Farmers</h3>
-          <p>Organic fertilizer</p>
-        </article>
-        <article class="industry-card">
-          <div class="industry-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12"/><path d="M12 12C12 8 8 4 4 4c0 4 4 8 8 8z"/><path d="M12 12c0-4 4-8 8-8 0 4-4 8-8 8z"/></svg>
-          </div>
-          <h3>Nurseries</h3>
-          <p>Manure &amp; compost</p>
-        </article>
-        <article class="industry-card">
-          <div class="industry-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c1 3 3 5 3 8a3 3 0 01-6 0c0-3 2-5 3-8z"/><path d="M8 14h8l1 8H7l1-8z"/></svg>
-          </div>
-          <h3>Temples</h3>
-          <p>Havan &amp; pooja</p>
-        </article>
-        <article class="industry-card">
-          <div class="industry-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
-          </div>
-          <h3>Households</h3>
-          <p>Ritual &amp; cleaning</p>
-        </article>
-      </div>
-      <div class="container industries-detail">
-        <p>We also serve <strong>Agriculture</strong> (natural manure and soil enrichment), <strong>Organic Farming</strong> (eco-friendly fertilizer for healthy crop growth), <strong>Gardening</strong> (ideal for home gardens and nurseries), <strong>Vermicompost Production</strong> (rich source of organic matter), and <strong>Religious Applications</strong> (suitable for havan, yajna, and traditional rituals).</p>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="section section-cream">
-      <div class="container section-header">
-        <span class="eyebrow">Pricing</span>
-        <h2 class="section-title">Transparent &amp; competitive rates</h2>
-        <p class="section-desc">Contact us for bulk pricing and delivery quotes tailored to your requirements.</p>
-      </div>
-      <div class="container pricing-wrap">
-        <table class="pricing-table">
+      <!-- SPECS TABLE -->
+      <h3 style="font-size:1rem; font-weight:600; margin-top:3rem; margin-bottom:0.5rem; color:var(--text-dark);">Product Specifications</h3>
+      <div class="specs-wrap">
+        <table class="specs-table">
           <thead>
             <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
+              <th>Parameter</th>
+              <th>Dry Cow Dung Cakes</th>
+              <th>Cow Dung Powder</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Dry Cow Dung Cakes</td>
-              <td>₹5 – ₹7 per piece</td>
-            </tr>
-            <tr>
-              <td>Bulk Supply</td>
-              <td>Available on Request</td>
-            </tr>
-            <tr>
-              <td>Packaging</td>
-              <td>25 kg / 50 kg Bags</td>
-            </tr>
+            <tr><td>Form</td><td>Cake (round/flat)</td><td>Powder / granules</td></tr>
+            <tr><td>Drying Method</td><td>Sun dried</td><td>Sun dried &amp; processed</td></tr>
+            <tr><td>Packaging</td><td>25 kg / 50 kg bags</td><td>25 kg / 50 kg bags</td></tr>
+            <tr><td>Minimum Order</td><td>500 kg</td><td>500 kg</td></tr>
+            <tr><td>Supply Capacity</td><td>Up to 100 Tons/month</td><td>Up to 100 Tons/month</td></tr>
+            <tr><td>Chemical Added</td><td>None</td><td>None</td></tr>
+            <tr><td>Delivery</td><td>Pan India</td><td>Pan India</td></tr>
           </tbody>
         </table>
-        <p class="pricing-note">Minimum order quantity: 500 kg. Supply capacity up to 100 tons per month.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Vision -->
-    <section class="section section-white vision-section">
-      <div class="container">
-        <span class="eyebrow">Our Vision</span>
-        <blockquote class="vision-quote">
-          To become one of India's leading suppliers of eco-friendly and sustainable cow dung products while empowering rural communities and supporting organic agriculture.
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section section-white cta-section">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Ready to place an order?</h2>
-          <p>Call or WhatsApp us directly for pricing, bulk orders &amp; delivery across India.</p>
-          <div class="cta-actions">
-            <a href="https://wa.me/916350225693" class="btn btn-cta" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us now">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp Now
-            </a>
-            <a href="tel:+916350225693" class="btn btn-cta" aria-label="Call us">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-              +91 63502 25693
-            </a>
-          </div>
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="container">
+      <div class="section-label">Who we serve</div>
+      <div class="section-title">Industries We Serve</div>
+      <p class="section-desc">From farms to temples, our natural products power a wide range of applications across India.</p>
+      <div class="industries-grid">
+        <div class="industry-card">
+          <div class="icon">🌾</div>
+          <h4>Agriculture</h4>
+          <p>Natural manure and soil enrichment for better yields.</p>
+        </div>
+        <div class="industry-card">
+          <div class="icon">🌱</div>
+          <h4>Organic Farming</h4>
+          <p>Eco-friendly fertilizer for healthy, chemical-free crops.</p>
+        </div>
+        <div class="industry-card">
+          <div class="icon">🪴</div>
+          <h4>Gardening</h4>
+          <p>Ideal for home gardens, nurseries &amp; potted plants.</p>
+        </div>
+        <div class="industry-card">
+          <div class="icon">♻️</div>
+          <h4>Vermicompost</h4>
+          <p>Rich source of organic matter for composting units.</p>
+        </div>
+        <div class="industry-card">
+          <div class="icon">🪔</div>
+          <h4>Religious Use</h4>
+          <p>Pure dung cakes for havan, yajna &amp; traditional rituals.</p>
+        </div>
+        <div class="industry-card">
+          <div class="icon">🏭</div>
+          <h4>Industrial</h4>
+          <p>Bulk supply for biogas plants &amp; compost manufacturers.</p>
         </div>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section section-cream-light">
-      <div class="container section-header">
-        <span class="eyebrow">Contact Us</span>
-        <h2 class="section-title">Get in touch</h2>
-      </div>
-      <div class="container contact-card">
-        <h3>MR Enterprises</h3>
-        <ul class="contact-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Rajasthan, India</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <a href="https://wa.me/916350225693" target="_blank" rel="noopener noreferrer">WhatsApp: +91 6350225693</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:mrenterprises6522@gmail.com">mrenterprises6522@gmail.com</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            <span>Delivery Available Across India</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p><strong>MR Enterprises</strong> &middot; Pure Cow Dung Products &middot; Rajasthan, India &middot; All rights reserved &copy; 2026</p>
     </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label">Rates &amp; Packages</div>
+      <div class="section-title">Pricing</div>
+      <p class="section-desc">Competitive rates with bulk discounts. Contact us for custom pricing based on quantity and location.</p>
+      <div class="pricing-grid">
+        <div class="price-card featured">
+          <span class="feat-tag">Most Popular</span>
+          <h3>Dry Cow Dung Cakes</h3>
+          <div class="price">₹5 – ₹7</div>
+          <div class="price-note">per piece · bulk pricing available</div>
+          <ul>
+            <li>Sun-dried, natural cakes</li>
+            <li>Min. order: 500 kg</li>
+            <li>Packaged in 25 kg / 50 kg bags</li>
+            <li>Pan India delivery</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Cow Dung Powder / Manure</h3>
+          <div class="price">On Request</div>
+          <div class="price-note">bulk pricing · contact us for quote</div>
+          <ul>
+            <li>Processed organic powder</li>
+            <li>Min. order: 500 kg</li>
+            <li>Packaged in 25 kg / 50 kg bags</li>
+            <li>Pan India delivery</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Bulk / Wholesale Orders</h3>
+          <div class="price">Custom</div>
+          <div class="price-note">volume discounts for large orders</div>
+          <ul>
+            <li>Supply up to 100 Tons/month</li>
+            <li>Long-term supply contracts</li>
+            <li>Custom packaging available</li>
+            <li>Dedicated account support</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:0.82rem; color:var(--text-light); margin-top:1.25rem;">* Prices may vary based on quantity, packaging, and delivery location. WhatsApp us for an exact quote.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-label">Our Products</div>
+      <div class="section-title">Photo Gallery</div>
+      <p class="section-desc">A look at our natural, sun-dried cow dung products ready for dispatch.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="g-icon">🟫</div>
+          <span>Dry Dung Cakes</span>
+        </div>
+        <div class="gallery-item">
+          <div class="g-icon">🌾</div>
+          <span>Packed Bags (50kg)</span>
+        </div>
+        <div class="gallery-item">
+          <div class="g-icon">🪣</div>
+          <span>Dung Powder</span>
+        </div>
+        <div class="gallery-item">
+          <div class="g-icon">🚛</div>
+          <span>Dispatch Ready</span>
+        </div>
+      </div>
+      <p class="gallery-note">📸 Real product photos coming soon. WhatsApp us for sample images and product catalogue.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Get in touch</div>
+      <div class="section-title">Contact Us</div>
+      <p class="section-desc">Reach out for pricing, bulk orders, samples, or any queries. We respond promptly on WhatsApp.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-row">
+            <div class="icon">📍</div>
+            <div>
+              <div class="label">Location</div>
+              <div class="val">Rajasthan, India</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon">📞</div>
+            <div>
+              <div class="label">WhatsApp &amp; Phone</div>
+              <div class="val"><a href="tel:+916350225693">+91 6350225693</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon">📧</div>
+            <div>
+              <div class="label">Email</div>
+              <div class="val"><a href="mailto:mrenterprises6522@gmail.com">mrenterprises6522@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon">🚚</div>
+            <div>
+              <div class="label">Delivery</div>
+              <div class="val">Pan India — all states covered</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <h4>Place an order or get a quote</h4>
+          <p>The fastest way to reach us is WhatsApp. We'll get back to you with pricing and availability right away.</p>
+          <a href="https://wa.me/916350225693?text=Hello%20MR%20Enterprises%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products." target="_blank" class="btn-wa-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp: +91 6350225693
+          </a>
+          <a href="mailto:mrenterprises6522@gmail.com" class="btn-call-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            mrenterprises6522@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>MR Enterprises</strong> · Premium Cow Dung Products · Rajasthan, India · © 2026 All rights reserved.</p>
+    <p style="margin-top:4px;">Bulk Supply · Pan India Delivery · 100% Natural &amp; Eco-Friendly</p>
   </footer>
 
+  <script>
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu');
+      m.style.display = m.style.display === 'block' ? 'none' : 'block';
+    }
+    // Smooth highlight active nav link on scroll
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? '#e6a84e' : '';
+      });
+    });
+  </script>
 </body>
 </html>
