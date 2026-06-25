@@ -33,6 +33,7 @@
       --radius-sm:   6px;
       --radius-md:   10px;
       --radius-lg:   16px;
+      --nav-height:  64px;
     }
 
     html {
@@ -40,6 +41,7 @@
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
+      scroll-padding-top: var(--nav-height);
     }
 
     /* PAGE LOADER */
@@ -85,19 +87,28 @@
     }
 
     /* ── NAV ── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 500;
+    }
+    .site-header.scrolled nav {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.35);
+    }
     nav {
       background: rgba(59,42,30,0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      position: sticky; top: 0; z-index: 500;
       width: 100%;
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      height: var(--nav-height);
       border-bottom: 1.5px solid rgba(200,136,60,0.4);
       transition: box-shadow 0.3s;
     }
-    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.35); }
     .nav-logo {
       font-family: 'Lora', serif;
       font-size: 1.25rem; font-weight: 600;
@@ -129,7 +140,14 @@
     .nav-cta:hover { background: #b8782c; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(200,136,60,0.35); }
     .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: #d4bfaa; border-radius: 2px; transition: 0.3s; }
-    .mobile-menu { display: none; background: var(--brown-deep); padding: 1rem 2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu {
+      display: none;
+      background: var(--brown-deep);
+      padding: 1rem 2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      max-height: calc(100vh - var(--nav-height));
+      overflow-y: auto;
+    }
     .mobile-menu a { display: block; color: #d4bfaa; text-decoration: none; padding: 10px 0; font-size: 0.95rem; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
     .mobile-menu a:last-child { border-bottom: none; }
 
@@ -317,6 +335,7 @@
       max-width: 100%;
       padding: 5rem 2rem;
       overflow-x: hidden;
+      scroll-margin-top: var(--nav-height);
     }
     .container {
       width: 100%;
@@ -588,28 +607,30 @@
   </a>
 
   <!-- NAV -->
-  <nav id="mainNav">
-    <a href="#" class="nav-logo">MR Enterprises <span>Premium Cow Dung Products</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#industries">Industries</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="nav-cta">WhatsApp Us</a>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#products" onclick="toggleMenu()">Products</a>
-    <a href="#industries" onclick="toggleMenu()">Industries</a>
-    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="https://wa.me/916350225693" target="_blank" style="color:#25D366;font-weight:600;">WhatsApp: +91 6350225693</a>
-  </div>
+  <header class="site-header" id="siteHeader">
+    <nav id="mainNav">
+      <a href="#" class="nav-logo">MR Enterprises <span>Premium Cow Dung Products</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="nav-cta">WhatsApp Us</a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#products" onclick="toggleMenu()">Products</a>
+      <a href="#industries" onclick="toggleMenu()">Industries</a>
+      <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+      <a href="https://wa.me/916350225693" target="_blank" style="color:#25D366;font-weight:600;">WhatsApp: +91 6350225693</a>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -949,9 +970,9 @@
     AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
 
     // ── NAV SCROLL SHADOW ──
-    const nav = document.getElementById('mainNav');
+    const siteHeader = document.getElementById('siteHeader');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
+      siteHeader.classList.toggle('scrolled', window.scrollY > 40);
     });
 
     // ── MOBILE MENU ──
