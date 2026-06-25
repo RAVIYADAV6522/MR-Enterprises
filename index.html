@@ -33,17 +33,9 @@
       --radius-sm:   6px;
       --radius-md:   10px;
       --radius-lg:   16px;
-      --nav-height:  64px;
-      --tab-strip-height: 52px;
     }
 
-    html {
-      scroll-behavior: smooth;
-      width: 100%;
-      max-width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+    html { scroll-behavior: smooth; }
 
     /* PAGE LOADER */
     #loader {
@@ -82,35 +74,22 @@
       color: var(--text-dark);
       font-size: 16px;
       line-height: 1.7;
-      width: 100%;
-      max-width: 100%;
-      height: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 500;
-    }
-    .site-header.scrolled nav {
-      box-shadow: 0 4px 30px rgba(0,0,0,0.35);
-    }
     nav {
       background: rgba(59,42,30,0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      width: 100%;
+      position: sticky; top: 0; z-index: 500;
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: var(--nav-height);
+      height: 64px;
       border-bottom: 1.5px solid rgba(200,136,60,0.4);
       transition: box-shadow 0.3s;
     }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.35); }
     .nav-logo {
       font-family: 'Lora', serif;
       font-size: 1.25rem; font-weight: 600;
@@ -130,8 +109,7 @@
       transition: width 0.25s ease;
     }
     .nav-links a:hover { color: var(--amber-light); }
-    .nav-links a.active-tab { color: var(--amber-light); }
-    .nav-links a.active-tab::after { width: 100%; }
+    .nav-links a:hover::after { width: 100%; }
     .nav-cta {
       background: var(--amber); color: #fff8f0;
       border: none; padding: 9px 20px;
@@ -143,147 +121,24 @@
     .nav-cta:hover { background: #b8782c; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(200,136,60,0.35); }
     .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: #d4bfaa; border-radius: 2px; transition: 0.3s; }
-    .mobile-menu {
-      display: none;
-      background: var(--brown-deep);
-      padding: 1rem 2rem 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      max-height: calc(100vh - var(--nav-height));
-      overflow-y: auto;
-    }
+    .mobile-menu { display: none; background: var(--brown-deep); padding: 1rem 2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .mobile-menu a { display: block; color: #d4bfaa; text-decoration: none; padding: 10px 0; font-size: 0.95rem; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
     .mobile-menu a:last-child { border-bottom: none; }
 
-    /* ── HORIZONTAL TAB SHELL ── */
-    .horizontal-shell {
-      display: flex;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      height: 100vh;
-      width: 100%;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .horizontal-shell::-webkit-scrollbar { display: none; }
-
-    .panel {
-      flex: 0 0 100%;
-      min-width: 100%;
-      width: 100%;
-      height: 100vh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      overflow-y: auto;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: calc(var(--tab-strip-height) + 12px);
-    }
-
-    .panel-home {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      padding-bottom: var(--tab-strip-height);
-      background: var(--brown-deep);
-    }
-    .panel-home .hero {
-      flex: 1;
-      min-height: 0;
-      padding-bottom: 1rem;
-    }
-
-    /* Bottom tab strip */
-    .tab-strip {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 480;
-      height: var(--tab-strip-height);
-      background: rgba(30, 18, 8, 0.97);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(200, 136, 60, 0.35);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .tab-strip::-webkit-scrollbar { display: none; }
-    .tab-strip-btn {
-      flex: 1 1 auto;
-      min-width: 58px;
-      padding: 7px 6px;
-      border: 1px solid transparent;
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: #c8b09a;
-      font-family: var(--font, 'Inter', sans-serif);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      white-space: nowrap;
-    }
-    .tab-strip-btn:hover { color: var(--amber-light); border-color: rgba(200, 136, 60, 0.25); }
-    .tab-strip-btn.active {
-      background: var(--amber);
-      color: #fff8f0;
-      border-color: var(--amber);
-    }
-
-    /* Side navigation arrows */
-    .panel-nav-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 460;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(200, 136, 60, 0.35);
-      background: rgba(59, 42, 30, 0.88);
-      color: var(--amber-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s, opacity 0.2s;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    }
-    .panel-nav-arrow:hover {
-      background: var(--brown-mid);
-      transform: translateY(-50%) scale(1.06);
-    }
-    .panel-nav-arrow:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-    .panel-nav-prev { left: 10px; }
-    .panel-nav-next { right: 10px; }
-
     /* ── HERO ── */
     .hero {
-      width: 100%;
-      max-width: 100%;
+      min-height: 100vh;
       background: var(--brown-deep);
-      padding: calc(var(--nav-height) + 1.5rem) 2rem 2rem;
+      padding: 7rem 2rem 5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    /* Animated gradient background — contained so it can't widen the page */
+    /* Animated gradient background */
     .hero-gradient {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute; inset: -50%;
+      width: 200%; height: 200%;
       background: conic-gradient(
         from 0deg at 30% 50%,
         rgba(200,136,60,0.06) 0deg,
@@ -295,8 +150,6 @@
         rgba(200,136,60,0.06) 360deg
       );
       animation: rotateGradient 20s linear infinite;
-      transform-origin: center center;
-      pointer-events: none;
     }
     @keyframes rotateGradient { to { transform: rotate(360deg); } }
 
@@ -318,10 +171,7 @@
 
     .hero-inner {
       position: relative; z-index: 2;
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 0.25rem;
+      max-width: 720px; margin: 0 auto;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -348,15 +198,13 @@
       animation: fadeSlideUp 0.9s ease 0.7s both;
     }
     .hero-tagline {
-      font-size: 0.82rem; color: #c8b09a;
-      margin-bottom: 1.5rem; letter-spacing: 0.05em;
+      font-size: 0.82rem; color: #7a6050;
+      margin-bottom: 2.75rem; letter-spacing: 0.05em;
       animation: fadeSlideUp 0.9s ease 0.85s both;
-      overflow-wrap: anywhere;
     }
     .hero-ctas {
       display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
       animation: fadeSlideUp 0.9s ease 1s both;
-      margin-bottom: 0;
     }
 
     /* Floating animation on hero text */
@@ -378,30 +226,30 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Swipe hint — flows below CTAs (no overlap) */
-    .swipe-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 1.25rem auto 0;
-      font-size: 0.72rem;
-      color: #c8b09a;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      animation: fadeIn 1s ease 1.5s both;
       cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(200, 136, 60, 0.25);
-      background: rgba(0, 0, 0, 0.15);
-      transition: border-color 0.2s, color 0.2s;
-      font-family: inherit;
-      animation: fadeSlideUp 0.9s ease 1.15s both;
     }
-    .swipe-hint:hover { color: var(--amber-light); border-color: rgba(200, 136, 60, 0.5); }
-    .swipe-hint svg { animation: nudgeRight 1.6s ease-in-out infinite; }
-    @keyframes nudgeRight {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(4px); }
+    .scroll-indicator span { font-size: 0.7rem; color: #7a6050; letter-spacing: 0.1em; text-transform: uppercase; }
+    .scroll-mouse {
+      width: 22px; height: 34px;
+      border: 1.5px solid rgba(200,136,60,0.4);
+      border-radius: 11px; position: relative;
+    }
+    .scroll-mouse::after {
+      content: ''; position: absolute;
+      top: 5px; left: 50%; transform: translateX(-50%);
+      width: 3px; height: 6px;
+      background: var(--amber); border-radius: 2px;
+      animation: scrollDot 1.8s ease infinite;
+    }
+    @keyframes scrollDot {
+      0%, 100% { top: 5px; opacity: 1; }
+      80% { top: 18px; opacity: 0; }
     }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -430,8 +278,6 @@
 
     /* ── TRUST BAR ── */
     .trust-bar {
-      width: 100%;
-      max-width: 100%;
       background: var(--brown-mid);
       padding: 0.9rem 2rem;
       display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem 2.5rem;
@@ -445,18 +291,9 @@
     }
     .trust-item:hover { color: var(--amber-light); }
 
-    /* ── SECTIONS (inside panels) ── */
-    section {
-      width: 100%;
-      max-width: 100%;
-      padding: calc(var(--nav-height) + 2rem) 2rem 3rem;
-      overflow-x: hidden;
-    }
-    .container {
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
     .section-label {
       font-size: 0.73rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--amber); margin-bottom: 0.45rem;
@@ -555,7 +392,7 @@
     /* ── COUNTER STATS SECTION ── */
     #stats {
       background: var(--brown-deep);
-      padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+      padding: 4rem 2rem;
     }
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
     .counter-box {}
@@ -673,10 +510,7 @@
 
     /* ── FLOATING WA BUTTON ── */
     .float-wa {
-      position: fixed;
-      bottom: calc(var(--tab-strip-height) + 16px);
-      right: 24px;
-      z-index: 400;
+      position: fixed; bottom: 24px; right: 24px; z-index: 400;
       width: 56px; height: 56px;
       background: #25D366;
       border-radius: 50%;
@@ -698,19 +532,10 @@
       .hamburger { display: flex; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-grid { grid-template-columns: 1fr; }
-      .hero { padding: calc(var(--nav-height) + 1rem) 1.25rem 1.5rem; }
-      .hero-badge { font-size: 0.68rem; padding: 6px 12px; }
-      .hero-tagline { font-size: 0.78rem; line-height: 1.6; }
-      .trust-bar { flex-direction: column; align-items: center; gap: 0.65rem; }
-      .panel-nav-arrow { width: 34px; height: 34px; }
-      .panel-nav-prev { left: 6px; }
-      .panel-nav-next { right: 6px; }
-      .tab-strip-btn { font-size: 0.62rem; min-width: 50px; padding: 6px 4px; }
+      .hero { min-height: auto; padding: 5rem 1.5rem 4rem; }
     }
     @media (max-width: 480px) {
-      section { padding: calc(var(--nav-height) + 1.5rem) 1.25rem 2.5rem; }
-      nav { padding: 0 1.25rem; }
-      .panel-nav-arrow { display: none; }
+      section { padding: 3.5rem 1.25rem; }
     }
   </style>
 </head>
@@ -729,37 +554,29 @@
   </a>
 
   <!-- NAV -->
-  <header class="site-header" id="siteHeader">
-    <nav id="mainNav">
-      <a href="#home" class="nav-logo tab-link" data-panel="home">MR Enterprises <span>Premium Cow Dung Products</span></a>
-      <ul class="nav-links">
-        <li><a href="#home" class="tab-link" data-panel="home">Home</a></li>
-        <li><a href="#about" class="tab-link" data-panel="about">About</a></li>
-        <li><a href="#products" class="tab-link" data-panel="products">Products</a></li>
-        <li><a href="#industries" class="tab-link" data-panel="industries">Industries</a></li>
-        <li><a href="#pricing" class="tab-link" data-panel="pricing">Pricing</a></li>
-        <li><a href="#contact" class="tab-link" data-panel="contact">Contact</a></li>
-      </ul>
-      <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="nav-cta">WhatsApp Us</a>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" class="tab-link" data-panel="home" onclick="toggleMenu()">Home</a>
-      <a href="#about" class="tab-link" data-panel="about" onclick="toggleMenu()">About</a>
-      <a href="#products" class="tab-link" data-panel="products" onclick="toggleMenu()">Products</a>
-      <a href="#industries" class="tab-link" data-panel="industries" onclick="toggleMenu()">Industries</a>
-      <a href="#pricing" class="tab-link" data-panel="pricing" onclick="toggleMenu()">Pricing</a>
-      <a href="#contact" class="tab-link" data-panel="contact" onclick="toggleMenu()">Contact</a>
-      <a href="https://wa.me/916350225693" target="_blank" style="color:#25D366;font-weight:600;">WhatsApp: +91 6350225693</a>
-    </div>
-  </header>
+  <nav id="mainNav">
+    <a href="#" class="nav-logo">MR Enterprises <span>Premium Cow Dung Products</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/916350225693?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20cow%20dung%20products" target="_blank" class="nav-cta">WhatsApp Us</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#products" onclick="toggleMenu()">Products</a>
+    <a href="#industries" onclick="toggleMenu()">Industries</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="https://wa.me/916350225693" target="_blank" style="color:#25D366;font-weight:600;">WhatsApp: +91 6350225693</a>
+  </div>
 
-  <!-- HORIZONTAL TAB SHELL -->
-  <div class="horizontal-shell" id="horizontalShell" aria-label="Main sections">
-
-  <div class="panel panel-home" id="panel-home">
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-gradient"></div>
@@ -775,15 +592,15 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp Now
         </a>
-        <a href="#products" class="btn-outline tab-link" data-panel="products">
+        <a href="#products" class="btn-outline">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
           View Products
         </a>
       </div>
-      <button type="button" class="swipe-hint tab-link" data-panel="about" aria-label="Go to About section">
-        <span>Swipe or explore tabs</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
+    </div>
+    <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
     </div>
   </section>
 
@@ -810,9 +627,7 @@
       Rajasthan, India
     </div>
   </div>
-  </div><!-- /panel-home -->
 
-  <div class="panel" id="panel-about">
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
@@ -855,9 +670,7 @@
       </div>
     </div>
   </section>
-  </div><!-- /panel-about -->
 
-  <div class="panel" id="panel-products">
   <!-- PRODUCTS -->
   <section id="products">
     <div class="container">
@@ -938,9 +751,7 @@
       </div>
     </div>
   </section>
-  </div><!-- /panel-products -->
 
-  <div class="panel" id="panel-industries">
   <!-- COUNTER STATS -->
   <section id="stats">
     <div class="stats-grid">
@@ -985,9 +796,7 @@
       </div>
     </div>
   </section>
-  </div><!-- /panel-industries -->
 
-  <div class="panel" id="panel-pricing">
   <!-- PRICING -->
   <section id="pricing">
     <div class="container">
@@ -1053,9 +862,7 @@
       <p class="gallery-note" data-aos="fade-up">📸 Real product photos coming soon. WhatsApp us for sample images and product catalogue.</p>
     </div>
   </section>
-  </div><!-- /panel-pricing -->
 
-  <div class="panel" id="panel-contact">
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
@@ -1092,27 +899,6 @@
     <p><strong>MR Enterprises</strong> · Premium Cow Dung Products · Rajasthan, India · © 2026 All rights reserved.</p>
     <p style="margin-top:4px;">Bulk Supply · Pan India Delivery · 100% Natural &amp; Eco-Friendly</p>
   </footer>
-  </div><!-- /panel-contact -->
-
-  </div><!-- /horizontal-shell -->
-
-  <!-- Side arrows -->
-  <button type="button" class="panel-nav-arrow panel-nav-prev" id="panelPrev" aria-label="Previous section">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-  </button>
-  <button type="button" class="panel-nav-arrow panel-nav-next" id="panelNext" aria-label="Next section">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-  </button>
-
-  <!-- Bottom tab strip -->
-  <nav class="tab-strip" id="tabStrip" aria-label="Section tabs">
-    <button type="button" class="tab-strip-btn active" data-panel="home">Home</button>
-    <button type="button" class="tab-strip-btn" data-panel="about">About</button>
-    <button type="button" class="tab-strip-btn" data-panel="products">Products</button>
-    <button type="button" class="tab-strip-btn" data-panel="industries">Industries</button>
-    <button type="button" class="tab-strip-btn" data-panel="pricing">Pricing</button>
-    <button type="button" class="tab-strip-btn" data-panel="contact">Contact</button>
-  </nav>
 
   <!-- AOS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1126,116 +912,13 @@
     });
 
     // ── AOS INIT ──
-    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 40 });
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
 
-    // ── HORIZONTAL TAB NAVIGATION ──
-    const horizontalShell = document.getElementById('horizontalShell');
-    const panelOrder = ['home', 'about', 'products', 'industries', 'pricing', 'contact'];
-    const panelPrev = document.getElementById('panelPrev');
-    const panelNext = document.getElementById('panelNext');
-    let statsAnimated = false;
-
-    function getPanelIndex(id) {
-      return panelOrder.indexOf(id);
-    }
-
-    function getCurrentPanelId() {
-      if (!horizontalShell) return 'home';
-      const idx = Math.round(horizontalShell.scrollLeft / horizontalShell.clientWidth);
-      return panelOrder[Math.max(0, Math.min(idx, panelOrder.length - 1))];
-    }
-
-    function updateActiveTab(id) {
-      document.querySelectorAll('.tab-strip-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.panel === id);
-      });
-      document.querySelectorAll('.tab-link').forEach(link => {
-        link.classList.toggle('active-tab', link.dataset.panel === id);
-      });
-      const idx = getPanelIndex(id);
-      if (panelPrev) panelPrev.disabled = idx <= 0;
-      if (panelNext) panelNext.disabled = idx >= panelOrder.length - 1;
-      document.getElementById('siteHeader').classList.toggle('scrolled', id !== 'home');
-      if (id === 'industries' && !statsAnimated) {
-        const statsSection = document.getElementById('stats');
-        if (statsSection) {
-          statsSection.querySelectorAll('[data-target]').forEach(animateCounter);
-          statsAnimated = true;
-        }
-      }
-      if (typeof AOS !== 'undefined') AOS.refresh();
-    }
-
-    function goToPanel(id, smooth = true) {
-      const panel = document.getElementById('panel-' + id);
-      if (!panel || !horizontalShell) return;
-      horizontalShell.scrollTo({
-        left: panel.offsetLeft,
-        behavior: smooth ? 'smooth' : 'auto'
-      });
-      updateActiveTab(id);
-      const mobileMenu = document.getElementById('mobileMenu');
-      if (mobileMenu) mobileMenu.style.display = 'none';
-    }
-
-    document.querySelectorAll('.tab-link, .tab-strip-btn').forEach(el => {
-      el.addEventListener('click', (e) => {
-        const panelId = el.dataset.panel;
-        if (!panelId) return;
-        e.preventDefault();
-        goToPanel(panelId);
-      });
+    // ── NAV SCROLL SHADOW ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
     });
-
-    if (panelPrev) {
-      panelPrev.addEventListener('click', () => {
-        const idx = getPanelIndex(getCurrentPanelId());
-        if (idx > 0) goToPanel(panelOrder[idx - 1]);
-      });
-    }
-    if (panelNext) {
-      panelNext.addEventListener('click', () => {
-        const idx = getPanelIndex(getCurrentPanelId());
-        if (idx < panelOrder.length - 1) goToPanel(panelOrder[idx + 1]);
-      });
-    }
-
-    if (horizontalShell) {
-      let scrollTicking = false;
-      horizontalShell.addEventListener('scroll', () => {
-        if (!scrollTicking) {
-          requestAnimationFrame(() => {
-            updateActiveTab(getCurrentPanelId());
-            scrollTicking = false;
-          });
-          scrollTicking = true;
-        }
-      }, { passive: true });
-      updateActiveTab('home');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        const idx = getPanelIndex(getCurrentPanelId());
-        if (idx < panelOrder.length - 1) goToPanel(panelOrder[idx + 1]);
-      }
-      if (e.key === 'ArrowLeft') {
-        const idx = getPanelIndex(getCurrentPanelId());
-        if (idx > 0) goToPanel(panelOrder[idx - 1]);
-      }
-    });
-
-    // Hash on load (e.g. #pricing)
-    window.addEventListener('load', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && panelOrder.includes(hash)) {
-        setTimeout(() => goToPanel(hash, false), 1600);
-      } else {
-        updateActiveTab('home');
-      }
-    });
-
-    // ── NAV SCROLL SHADOW (handled in updateActiveTab) ──
 
     // ── MOBILE MENU ──
     function toggleMenu() {
@@ -1243,15 +926,12 @@
       m.style.display = m.style.display === 'block' ? 'none' : 'block';
     }
 
-    // ── PARALLAX HERO (subtle idle animation) ──
+    // ── PARALLAX HERO ──
     const heroParallax = document.getElementById('heroParallax');
-    if (heroParallax) {
-      let t = 0;
-      setInterval(() => {
-        t += 0.02;
-        heroParallax.style.transform = `translateY(${Math.sin(t) * 6}px)`;
-      }, 50);
-    }
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (heroParallax) heroParallax.style.transform = `translateY(${y * 0.35}px)`;
+    });
 
     // ── FLOATING PARTICLES ──
     (function() {
@@ -1261,9 +941,8 @@
       let W, H, particles = [];
 
       function resize() {
-        const hero = canvas.closest('.hero');
-        W = canvas.width  = hero ? hero.clientWidth  : window.innerWidth;
-        H = canvas.height = hero ? hero.clientHeight : window.innerHeight;
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
       }
       resize();
       window.addEventListener('resize', () => { resize(); initParticles(); });
@@ -1342,7 +1021,28 @@
       requestAnimationFrame(step);
     }
 
-    // Stats counters run when Industries tab is opened (see updateActiveTab)
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const statsSection = document.getElementById('stats');
+    if (statsSection) counterObserver.observe(statsSection);
+
+    // ── ACTIVE NAV LINK ──
+    const allSections = document.querySelectorAll('section[id]');
+    const navLinks    = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      allSections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + cur ? '#e6a84e' : '';
+      });
+    });
   </script>
 </body>
 </html>
