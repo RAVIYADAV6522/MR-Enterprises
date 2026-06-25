@@ -187,7 +187,11 @@
       padding-bottom: var(--tab-strip-height);
       background: var(--brown-deep);
     }
-    .panel-home .hero { flex: 1; min-height: 0; }
+    .panel-home .hero {
+      flex: 1;
+      min-height: 0;
+      padding-bottom: 1rem;
+    }
 
     /* Bottom tab strip */
     .tab-strip {
@@ -345,13 +349,14 @@
     }
     .hero-tagline {
       font-size: 0.82rem; color: #c8b09a;
-      margin-bottom: 2.75rem; letter-spacing: 0.05em;
+      margin-bottom: 1.5rem; letter-spacing: 0.05em;
       animation: fadeSlideUp 0.9s ease 0.85s both;
       overflow-wrap: anywhere;
     }
     .hero-ctas {
       display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
       animation: fadeSlideUp 0.9s ease 1s both;
+      margin-bottom: 0;
     }
 
     /* Floating animation on hero text */
@@ -373,28 +378,24 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Swipe hint (replaces vertical scroll indicator) */
+    /* Swipe hint — flows below CTAs (no overlap) */
     .swipe-hint {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      margin: 1.25rem auto 0;
       font-size: 0.72rem;
       color: #c8b09a;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       cursor: pointer;
-      z-index: 3;
-      animation: fadeIn 1s ease 1.5s both;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 20px;
       border: 1px solid rgba(200, 136, 60, 0.25);
       background: rgba(0, 0, 0, 0.15);
       transition: border-color 0.2s, color 0.2s;
       font-family: inherit;
+      animation: fadeSlideUp 0.9s ease 1.15s both;
     }
     .swipe-hint:hover { color: var(--amber-light); border-color: rgba(200, 136, 60, 0.5); }
     .swipe-hint svg { animation: nudgeRight 1.6s ease-in-out infinite; }
@@ -779,11 +780,11 @@
           View Products
         </a>
       </div>
+      <button type="button" class="swipe-hint tab-link" data-panel="about" aria-label="Go to About section">
+        <span>Swipe or explore tabs</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
     </div>
-    <button type="button" class="swipe-hint tab-link" data-panel="about" aria-label="Go to About section">
-      <span>Swipe or explore tabs</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
   </section>
 
   <!-- TRUST BAR -->
